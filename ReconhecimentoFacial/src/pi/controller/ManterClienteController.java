@@ -10,9 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import pi.azure.service.FaceService;
 import pi.entity.Cliente;
 import pi.service.ClienteService;
 
@@ -20,8 +25,6 @@ import pi.service.ClienteService;
 public class ManterClienteController {
 	@Autowired
 	private ClienteService cService;
-	
-	private FaceService fService;
 
 	@RequestMapping("index")
 	public String iniciar() {
@@ -39,13 +42,13 @@ public class ManterClienteController {
 			if (!erros.hasErrors()) {
 				
 				cliente = cService.inserirCliente(cliente);
-				fService.createPerson(cliente.getNome());
 				
 				model.addAttribute("cliente", cliente);
 
-				return "EnviarFoto";
+				//return "EnviarFoto";
 			}
-			return "CriarCliente";
+			//return "CriarCliente";
+			return "ListarClientes";
 
 		} catch (IOException e) {
 			e.printStackTrace();

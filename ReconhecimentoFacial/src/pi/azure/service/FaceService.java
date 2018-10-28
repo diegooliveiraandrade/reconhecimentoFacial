@@ -62,51 +62,100 @@ public class FaceService {
 		}
 		return name;
 	}
-
-	public String createPerson(String nome) {
-		
-		Cliente cService = null;
-		
+	
+	public String criarPessoa(String personGroupId, String name)
+	{
 		String personId = null;
-
-		String personGroupName = "grupo";
 		
+		String personGroupName = "grupo";
+		String person1 = name;
 		String userData = "person name";
 
+		
 		try {
+			  
+        	
+    	    RestTemplate restTemplate = new RestTemplate();
+    	    restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+    	      	    
+    	    
+    	    HttpHeaders headers = new HttpHeaders();
+    	    headers.setContentType(MediaType.APPLICATION_JSON);
+    	    headers.set("Ocp-Apim-Subscription-Key", faceApikey);
+    	    
+    	    String body = "{ \"name\": \"" + person1 + "\",  \"userData\": \"" + userData + "\"}";
+    		HttpEntity<String> entity = new HttpEntity<String>(body, headers);
 
-			RestTemplate restTemplate = new RestTemplate();
-			restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+    		UriComponents builder = UriComponentsBuilder.newInstance().scheme("https")
+    				.host("brazilsouth.api.cognitive.microsoft.com").path("/face/v1.0/persongroups/" + personGroupName +  "/persons" )
+    				.build();
 
-			HttpHeaders headers = new HttpHeaders();
-			headers.setContentType(MediaType.APPLICATION_JSON);
-			headers.set("Ocp-Apim-Subscription-Key", faceApikey);
+    		ResponseEntity<String> result = restTemplate.exchange(builder.toUriString(), HttpMethod.POST, entity, String.class);
+    		String jsonResultBody = result.getBody().toString();
+    		
+    		//extract json result
+    		if (jsonResultBody.charAt(0) == '{') {
+                JSONObject jsonObject = new JSONObject(jsonResultBody);
+                personId = jsonObject.getString("personId");
+            }
+    		
 
-			String body = "{ \"name\": \"" + cService.getNome() + "\",  \"userData\": \"" + userData + "\"}";
-			System.out.println("Create PresonFace body " + body);
-			HttpEntity<String> entity = new HttpEntity<String>(body, headers);
+       }
+        catch (Exception e)
+        {
+            System.out.println("Exception occurred in stored" + e.getMessage());
+        }
+		
+		return personId;
+	}
 
-			UriComponents builder = UriComponentsBuilder.newInstance().scheme("https")
-					.host("brazilsouth.api.cognitive.microsoft.com")
-					.path("/face/v1.0/persongroups/" + personGroupName + "/persons").build();
+	public String createPerson(String personGroupId, String name)
+	{
+		String personId = null;
+		
+		String personGroupName = personGroupId;
+		String person1 = name;
+		String userData = "person name";
 
-			System.out.println("Create PresonFace Api: " + builder.toUriString());
-			ResponseEntity<String> result = restTemplate.exchange(builder.toUriString(), HttpMethod.POST, entity,
-					String.class);
-			System.out.println("\n\n Results of PersonGroup  " + result.getBody().toString());
-			String jsonResultBody = result.getBody().toString();
+		
+		try {
+			  
+        	
+    	    RestTemplate restTemplate = new RestTemplate();
+    	    restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+    	      	    
+    	    
+    	    HttpHeaders headers = new HttpHeaders();
+    	    headers.setContentType(MediaType.APPLICATION_JSON);
+    	    headers.set("Ocp-Apim-Subscription-Key", faceApikey);
+    	    
+    	    String body = "{ \"name\": \"" + person1 + "\",  \"userData\": \"" + userData + "\"}";
+    	    System.out.println("Create PresonFace body "+ body);
+    		HttpEntity<String> entity = new HttpEntity<String>(body, headers);
 
-			// extract json result
-			if (jsonResultBody.charAt(0) == '{') {
-				JSONObject jsonObject = new JSONObject(jsonResultBody);
-				personId = jsonObject.getString("personId");
-				System.out.println("Stored JSON personId:  " + personId);
-			}
+    		UriComponents builder = UriComponentsBuilder.newInstance().scheme("https")
+    				.host("brazilsouth.api.cognitive.microsoft.com").path("/face/v1.0/persongroups/" + personGroupName +  "/persons" )
+    				.build();
 
-		} catch (Exception e) {
-			System.out.println("Exception occurred in stored" + e.getMessage());
-		}
+    		System.out.println("Create PresonFace Api: "+ builder.toUriString());
+    		ResponseEntity<String> result = restTemplate.exchange(builder.toUriString(), HttpMethod.POST, entity, String.class);
+    		System.out.println("\n\n Results of PersonGroup  " + result.getBody().toString() );
+    		String jsonResultBody = result.getBody().toString();
+    		
+    		//extract json result
+    		if (jsonResultBody.charAt(0) == '{') {
+                JSONObject jsonObject = new JSONObject(jsonResultBody);
+                personId = jsonObject.getString("personId");
+                System.out.println("Stored JSON personId:  " + personId);
+            }
+    		
 
+       }
+        catch (Exception e)
+        {
+            System.out.println("Exception occurred in stored" + e.getMessage());
+        }
+		
 		return personId;
 	}
 

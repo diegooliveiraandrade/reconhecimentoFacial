@@ -77,7 +77,7 @@ public class FaceController {
            
             return "redirect:/person/add/" + groupId;
      
-    }   
+    }    
     
     
     
