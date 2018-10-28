@@ -108,7 +108,7 @@
                                                 ${cliente.rg }
                                             </td>
                                             <td>
-                                                ${cliente.eMail }
+                                                ${cliente.email }
                                             </td>
                                             <td>
                                                 ${cliente.idImagem }

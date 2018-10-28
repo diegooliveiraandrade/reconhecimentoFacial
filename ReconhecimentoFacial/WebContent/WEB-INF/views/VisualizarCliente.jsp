@@ -58,7 +58,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<p><strong>E-Mail:&nbsp;</strong>${cliente.eMail }</p>
+						<p><strong>E-Mail:&nbsp;</strong>${cliente.email }</p>
 					</div>
 				</div>
 				</div>

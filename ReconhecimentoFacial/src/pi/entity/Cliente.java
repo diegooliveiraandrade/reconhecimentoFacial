@@ -5,8 +5,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import pi.azure.service.FaceService;
 
 @Entity
 @Table(name = "cliente")
@@ -23,7 +35,7 @@ public class Cliente {
 	@Size(max = 12, message = "Tamanho até 12 caracteres")
 	private String rg;
 	@Size(max = 60, message = "Tamanho até 60 caracteres")
-	private String eMail;
+	private String email;
 	@Size(max = 300, message = "Tamanho até 300 caracteres")
 	private String idImagem;
 	@Size(max = 300)
@@ -44,6 +56,8 @@ public class Cliente {
 	private String pais;
 	@Size(max = 20)
 	private String telefone;
+	@Size(max = 50)
+	private String personId;
 
 	public int getId() {
 		return id;
@@ -77,12 +91,12 @@ public class Cliente {
 		this.rg = rg;
 	}
 
-	public String geteMail() {
-		return eMail;
+	public String getemail() {
+		return email;
 	}
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
+	public void setemail(String email) {
+		this.email = email;
 	}
 
 	public String getIdImagem() {
@@ -164,13 +178,23 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	public String getPersonId() {
+	
+		FaceService fService = new FaceService(null);
+		String name = nome;
+		return fService.criarPessoa(null, name);	
+	}
+
+	public void setPersonId(String personId) {
+		this.personId = getPersonId();
+	}	
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", eMail=" + eMail
+		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", email=" + email
 				+ ", idImagem=" + idImagem + ", endereco=" + endereco + ", cep=" + cep + ", tipoLogradouro="
 				+ tipoLogradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", estado="
-				+ estado + ", pais=" + pais + ", telefone=" + telefone + "]";
+				+ estado + ", pais=" + pais + ", telefone=" + telefone + ", personId=" + personId + "]";
 	}
-
 }
