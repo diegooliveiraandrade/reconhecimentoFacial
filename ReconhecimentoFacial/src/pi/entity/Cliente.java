@@ -6,19 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.swing.plaf.synth.SynthSeparatorUI;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import pi.azure.service.FaceService;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "cliente")
@@ -59,6 +50,7 @@ public class Cliente {
 	@Size(max = 50)
 	private String personId;
 
+	
 	public int getId() {
 		return id;
 	}
@@ -178,17 +170,14 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
+
 	public String getPersonId() {
-	
-		FaceService fService = new FaceService(null);
-		String name = nome;
-		return fService.criarPessoa(null, name);	
+		return personId;
 	}
 
 	public void setPersonId(String personId) {
-		this.personId = getPersonId();
-	}	
+		this.personId = personId;
+	}
 
 	@Override
 	public String toString() {

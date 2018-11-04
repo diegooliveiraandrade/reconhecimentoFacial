@@ -59,6 +59,9 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="col-md-2">
+                            <a href="busca_foto" class="btn btn-primary pull-right h2">Buscar por foto</a>
+                        </div>
 
                         <div class="col-md-3">
                             <a href="novo_cliente" class="btn btn-primary pull-right h2">Novo Cliente</a>

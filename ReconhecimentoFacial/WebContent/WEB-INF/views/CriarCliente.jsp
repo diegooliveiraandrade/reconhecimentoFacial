@@ -22,7 +22,7 @@
 	<div id="main" class="container">
 		<h3 class="page-header">Incluir Cliente</h3>
 		<!-- Formulario para inclusao de clientes -->
-		<form action="criar_cliente" method="post">
+		<form action="inserirClienteFoto64" method="post">
 			<!-- area de campos do form -->
 			<div class="row">
 				<div class="form-group col-md-4">
@@ -44,13 +44,7 @@
 						maxlength="12" placeholder="CPF">
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="form-group col-md-4">
-					<label for="foto">Foto</label> <input type="file"
-						class="form-control" required name="foto" id="foto" />
-				</div>
-
+			
 				<div class="form-group col-md-6">
 					<label for="email">E-Mail</label> <input type="text"
 						class="form-control" name="email" id="email" maxlength="60"
@@ -111,11 +105,57 @@
 						placeholder="Endereço">
 				</div>
 			</div>
+			<!-- parte para inclusao da foto -->
+			<div class="row">
+				<div>
+					<video id="video" width="640" height="480" autoplay></video>
+					<input type="button" id="snap" title="Capturar Foto" value="Captura Imagem"> 
+					<canvas id="canvas" width="640" height="480"></canvas>
+					<script type="text/javascript">
+						// Grab elements, create settings, etc.
+						var video = document.getElementById('video');
+						// Get access to the camera!
+						if (navigator.mediaDevices
+								&& navigator.mediaDevices.getUserMedia) {
+							// Not adding `{ audio: true }` since we only want video now
+							navigator.mediaDevices.getUserMedia({
+								video : true
+							}).then(function(stream) {
+								video.src = window.URL.createObjectURL(stream);
+								video.play();
+							});
+						}
+						// Elements for taking the snapshot
+						var canvas = document.getElementById('canvas');
+						var context = canvas.getContext('2d');
+						var video = document.getElementById('video');
+						// Trigger photo take
+						document.getElementById("snap")
+								.addEventListener(
+										"click",
+										function() {
+											context.drawImage(video, 0, 0, 640,
+													480);
+											var input = document
+													.createElement('input');
+											input.type = "text";
+											input.name = "file";
+											input.value = canvas.toDataURL();
+											document.getElementById("foto")
+													.appendChild(input);
+										});
+					</script>
+				</div>
+				<div id="foto">
+					<form:errors path="file" cssStyle="color:red" />
+				</div>
+			</div>
+			<hr />
 			<div id="actions" class="row">
 				<div class="col-md-12">
-					<button type="submit" class="btn btn-primary btn-block" name="acao"
+					<button type="submit" class="btn btn-primary" name="acao"
 						value="criar">Salvar</button>
-					<a href="listar_clientes" class="btn btn-danger btn-block">Cancelar</a>
+					<a href="index" class="btn btn-default">Cancelar</a>
 				</div>
 			</div>
 		</form>
