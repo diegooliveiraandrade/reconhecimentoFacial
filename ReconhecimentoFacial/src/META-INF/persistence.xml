@@ -8,11 +8,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
 		<!-- entidades mapeadas -->
-		<class>pi.entity.Cliente</class>
-		<class>pi.azure.model.FaceDTO</class>
-		<class>pi.azure.model.PersonFaceDTO</class>
-		<class>pi.azure.model.UnknownPersonDTO</class>
-		
+		<class>pi.entity.Cliente</class>		
 		<properties>
 			<!-- dados da conexao estao no spring-context -->
 

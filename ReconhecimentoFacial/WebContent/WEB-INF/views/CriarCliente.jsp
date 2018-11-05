@@ -9,107 +9,144 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Criar Cliente</title>
+<title>Cadastro de Pessoas</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
-</head>
 
+</head>
 <body>
 	<!-- Barra superior com os menus de navegação -->
 	<c:import url="Menu.jsp" />
 	<!-- Container Principal -->
 	<div id="main" class="container">
-		<h3 class="page-header">Incluir Cliente</h3>
+		<h3 class="page-header">Novo Cliente</h3>
 		<!-- Formulario para inclusao de clientes -->
-		<form action="inserirClienteFoto64" method="post">
+		<form action="createClientePhoto" method="post"
+			enctype="multipart/form-data">
 			<!-- area de campos do form -->
 			<div class="row">
-				<div class="form-group col-md-4">
+				<div class="form-group col-md-8">
 					<label for="nome">Nome</label>
 					<form:errors path="cliente.nome" cssStyle="color:red" />
 					<input type="text" class="form-control" name="nome" id="nome"
-						required maxlength="100" placeholder="Nome">
+						maxlength="60" placeholder="nome">
 				</div>
-
-				<div class="form-group col-md-4">
-					<label for="rg">RG</label> <input type="text" class="form-control"
-						name="rg" id="rg" maxlength="12" placeholder="RG">
-				</div>
-
-				<div class="form-group col-md-4">
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
 					<label for="cpf">CPF</label>
 					<form:errors path="cliente.cpf" cssStyle="color:red" />
 					<input type="text" class="form-control" name="cpf" id="cpf"
-						maxlength="12" placeholder="CPF">
+						maxlength="60" placeholder="cpf">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="RG">RG</label>
+					<form:errors path="cliente.rg" cssStyle="color:red" />
+					<input type="text" class="form-control" name="rg"
+						id="rg" maxlength="60" placeholder="rg">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="EMAIL">Email</label>
+					<form:errors path="pessoa.email" cssStyle="color:red" />
+					<input type="text" class="form-control" name="email" id="email"
+						maxlength="60" placeholder="email">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="idImagem">ID Imagem</label>
+					<form:errors path="cliente.idImagem" cssStyle="color:red" />
+					<input type="text" class="form-control" name="idImagem"
+						id="idImagem" maxlength="60" placeholder="idImagem">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="ENDERECO">Endereço</label>
+					<form:errors path="cliente.endereco" cssStyle="color:red" />
+					<input type="text" class="form-control" name="endereco" id="endereco"
+						maxlength="60" placeholder="endereco">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="CEP">CEP</label>
+					<form:errors path="cliente.cep" cssStyle="color:red" />
+					<input type="text" class="form-control" name="cep"
+						id="cep" maxlength="60" placeholder="cep">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="tipoLogradouro">Logradouro</label>
+					<form:errors path="cliente.tipoLogradouro" cssStyle="color:red" />
+					<input type="text" class="form-control" name="tipoLogradouro"
+						id="tipoLogradouro" maxlength="60" placeholder="tipoLogradouro">
 				</div>
 			</div>
 			
-				<div class="form-group col-md-6">
-					<label for="email">E-Mail</label> <input type="text"
-						class="form-control" name="email" id="email" maxlength="60"
-						placeholder="E-Mail">
-				</div>
-				<div class="form-group col-md-2">
-					<label for="idImagem">ID-IMAGEM</label> <input type="text"
-						class="form-control" name="idImagem" id="idImagem" maxlength="300"
-						placeholder="ID-IMAGEM">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="endereco">Endereço</label> <input type="text"
-						class="form-control" name="endereco" id="endereco" maxlength="300"
-						placeholder="Endereço">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="cep">CEP</label> <input type="text"
-						class="form-control" name="cep" id="cep" maxlength="10"
-						placeholder="CEP">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="tipoLogradouro">Tipo Logradouro</label> <input
-						type="text" class="form-control" name="tipoLogradouro"
-						id="tipoLogradouro" maxlength="10" placeholder="Tipo Logradouro">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="numero">Numero</label> <input type="text"
-						class="form-control" name="numero" id="numero" maxlength="10"
-						placeholder="Numero">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="bairro">Bairro</label> <input type="text"
-						class="form-control" name="bairro" id="bairro" maxlength="100"
-						placeholder="Bairro">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="cidade">Cidade</label> <input type="text"
-						class="form-control" name="cidade" id="cidade" maxlength="100"
-						placeholder="Cidade">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="estado">Estado</label> <input type="text"
-						class="form-control" name="estado" id="estado" maxlength="2"
-						placeholder="Estado">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="pais">País</label> <input type="text"
-						class="form-control" name="pais" id="pais" maxlength="100"
-						placeholder="País">
-				</div>
-				<div>
-					<input type="hidden" class="form-control" name="personId"
-						id="personId" maxlength="100" placeholder="personId">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="telefone">Telefone</label> <input type="text"
-						class="form-control" name="telefone" id="telefone" maxlength="20"
-						placeholder="Endereço">
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="numero">Numero</label>
+					<form:errors path="cliente.numero" cssStyle="color:red" />
+					<input type="text" class="form-control" name="numero"
+						id="numero" maxlength="60" placeholder="numero">
 				</div>
 			</div>
-			<!-- parte para inclusao da foto -->
+			
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="bairro">Bairro</label>
+					<form:errors path="cliente.bairro" cssStyle="color:red" />
+					<input type="text" class="form-control" name="bairro"
+						id="bairro" maxlength="60" placeholder="bairro">
+				</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="cidade">Cidade</label>
+					<form:errors path="cliente.cidade" cssStyle="color:red" />
+					<input type="text" class="form-control" name="cidade"
+						id="cidade" maxlength="60" placeholder="cidade">
+				</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="estado">Estado</label>
+					<form:errors path="cliente.estado" cssStyle="color:red" />
+					<input type="text" class="form-control" name="estado"
+						id="estado" maxlength="60" placeholder="estado">
+				</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="pais">País</label>
+					<form:errors path="cliente.pais" cssStyle="color:red" />
+					<input type="text" class="form-control" name="pais"
+						id="pais" maxlength="60" placeholder="pais">
+				</div>
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="telefone">Telefone</label>
+					<form:errors path="cliente.telefone" cssStyle="color:red" />
+					<input type="text" class="form-control" name="telefone"
+						id="telefone" maxlength="60" placeholder="telefone">
+				</div>
+			</div>
+				<div hidden="form-group col-md-4">
+					<label for="personId">PersonId</label> <input type="text"
+						class="form-control" name="cliente.personId" id="personId"
+						placeholder="personId">
+				</div>
+			</div>
+			<!-- inclusao da foto -->
 			<div class="row">
 				<div>
-					<video id="video" width="640" height="480" autoplay></video>
-					<input type="button" id="snap" title="Capturar Foto" value="Captura Imagem"> 
+					<video id="video" width="300" height="300" autoplay></video>
+					<input type="button" id="snap" title="Capturar Foto" value="Salvar Foto"> 
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<script type="text/javascript">
 						// Grab elements, create settings, etc.
@@ -134,11 +171,11 @@
 								.addEventListener(
 										"click",
 										function() {
-											context.drawImage(video, 0, 0, 640,
-													480);
+											context.drawImage(video, 0, 0, 300,
+													300);
 											var input = document
 													.createElement('input');
-											input.type = "text";
+											input.type = "hidden";
 											input.name = "file";
 											input.value = canvas.toDataURL();
 											document.getElementById("foto")
@@ -163,5 +200,4 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
-
 </html>

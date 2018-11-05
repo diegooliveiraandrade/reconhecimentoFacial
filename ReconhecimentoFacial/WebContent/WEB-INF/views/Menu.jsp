@@ -13,16 +13,17 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="reiniciar_lista">Clientes</a></li>
+                    <li><a href="criarCliente">Cadastrar Cliente</a></li>
+                    <li><a href="identificarCliente">Identificar Cliente</a></li>
                     <li class="nav-item dropdown">
-                   <!--  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catálogo</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     		<ul class="dropdown-menu">
-  						  <li><a class="dropdown-item" href="#">por CPF</a></li>
-  						   <li><a class="dropdown-item" href="#">por RG</a></li>
-  						   <li><a class="dropdown-item" href="#">E-MAIL</a></li>
+  						  <li><a class="dropdown-item" href="#"></a></li>
+  						   <li><a class="dropdown-item" href="#"></a></li>
+  						   <li><a class="dropdown-item" href="#"></a></li>
 						</ul>
                     </li>
                 </ul>
-            </div>  -->
+            </div>
         </div>
     </nav>

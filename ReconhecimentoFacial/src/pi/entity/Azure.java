@@ -5,40 +5,37 @@ import java.util.ArrayList;
 
 public class Azure {
 
-	// Atributos
-	private String codAzure;
-	private ArrayList<File> fotos;
+	private String personId;
+	private ArrayList<File> photos;
 
-	// Construtores
 	public Azure() {
 
 	}
 
-	public Azure(String codAzure) {
-		this.codAzure = codAzure;
+	public Azure(String personId) {
+		this.personId = personId;
 	}
 
-	// Métodos Get e Set
-	public String getCodAzure() {
-		return codAzure;
+	
+	public String getPersonId() {
+		return personId;
 	}
 
-	public void setCodAzure(String codAzure) {
-		this.codAzure = codAzure;
+	public void setPersonId(String personId) {
+		this.personId = personId;
 	}
 
-	public ArrayList<File> getFotos() {
-		return fotos;
+	public ArrayList<File> getPhotos() {
+		return photos;
 	}
 
-	public void setFotos(ArrayList<File> fotos) {
-		this.fotos = fotos;
+	public void setPhotos(ArrayList<File> photos) {
+		this.photos = photos;
 	}
 
-	// Método ToString
 	@Override
 	public String toString() {
-		return "Azure [codAzure=" + codAzure + ", fotos=" + fotos + "]";
+		return "Azure [personId=" + personId + ", photos=" + photos + "]";
 	}
 
 }

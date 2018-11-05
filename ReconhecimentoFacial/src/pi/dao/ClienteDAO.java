@@ -25,13 +25,14 @@ public class ClienteDAO {
 		return manager.find(Cliente.class, id);
 	}
 
-	public void atualizarCliente(Cliente cliente) throws IOException {
+	public Cliente atualizarCliente(Cliente cliente) throws IOException {
 		System.out.println(cliente);
 		manager.merge(cliente);
+		return cliente;
 	}
 
-	public void removerCliente(Cliente cliente) throws IOException {
-		manager.remove(manager.find(Cliente.class, cliente.getId()));
+	public void removerCliente(int id) throws IOException {
+		manager.remove(manager.find(Cliente.class, id));
 	}
 
 	public List<Cliente> listarCliente(String chave) throws IOException {

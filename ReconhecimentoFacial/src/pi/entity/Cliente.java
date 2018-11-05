@@ -1,56 +1,54 @@
 package pi.entity;
 
+import java.io.File;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+public class Cliente extends Azure{
+	
 	@Id
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@NotNull
-	@Size(max = 100, message = "Tamanho até 100 caracteres")
 	private String nome;
-	@Size(max = 12, message = "Tamanho até 12 caracteres")
 	private String cpf;
-	@Size(max = 12, message = "Tamanho até 12 caracteres")
 	private String rg;
-	@Size(max = 60, message = "Tamanho até 60 caracteres")
 	private String email;
-	@Size(max = 300, message = "Tamanho até 300 caracteres")
 	private String idImagem;
-	@Size(max = 300)
 	private String endereco;
-	@Size(max = 10)
 	private String cep;
-	@Size(max = 10)
 	private String tipoLogradouro;
-	@Size(max = 10)
 	private String numero;
-	@Size(max = 100)
 	private String bairro;
-	@Size(max = 100)
 	private String cidade;
-	@Size(max = 2)
 	private String estado;
-	@Size(max = 100)
 	private String pais;
-	@Size(max = 20)
 	private String telefone;
-	@Size(max = 50)
 	private String personId;
+	private File foto;
+	
+	// Contructor
+		public Cliente() {
+			// TODO Auto-generated constructor stub
+		}
 
 	
+	public File getFoto() {
+		return foto;
+	}
+
+	public void setFoto(File foto) {
+		this.foto = foto;
+	}
+
 	public int getId() {
 		return id;
 	}
