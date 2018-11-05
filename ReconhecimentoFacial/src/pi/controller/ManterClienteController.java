@@ -139,7 +139,7 @@ public class ManterClienteController {
 
 	@RequestMapping("/identifica")
 	public String identifica() {
-		return "PegaFotos";
+		return "CatchPhotos";
 	}
 
 	/*
@@ -220,6 +220,8 @@ public class ManterClienteController {
 	 * IDENTIFICA CLIENTE ATRAVES DA FOTO
 	 */
 
+	/*
+	
 	@RequestMapping(method = RequestMethod.POST, value = "rest/cliente/identifica", headers = "Accept=application/json")
 	public @ResponseBody String identifyCliente(@RequestBody String photo, Model model) throws IOException {
 		try {
@@ -241,5 +243,7 @@ public class ManterClienteController {
 		}
 
 	}
+	
+	*/
 
 }
