@@ -22,6 +22,7 @@ public class AzureDAO {
 
 	// key da API
 	private static final String subscriptionKey = "ecf414eaa0434da2b46426317f6b999d";
+	
 
 	/**
 	 * IDENTIFICANDO A PESSOA ATRAVES DO ID RECEBIDO PELO IdentifyCLiente
@@ -42,12 +43,13 @@ public class AzureDAO {
 			// Request body
 			StringEntity reqEntity = new StringEntity("{\n" + "    \"personGroupId\": \"grupao\",\n"
 					+ "    \"faceIds\": [\n" + "        \"" + idPhoto + "\"\n" + "    ],\n"
-					+ "    \"maxNumOfCandidatesReturned\": 5,\n" + "    \"confidenceThreshold\": 0.5\n" + "}");
+					+ "    \"maxNumOfCandidatesReturned\": 1,\n" + "    \"confidenceThreshold\": 0.5\n" + "}");
 			request.setEntity(reqEntity);
 			HttpResponse response = httpclient.execute(request);
 			String json = EntityUtils.toString(response.getEntity());
 			retorno = json;
-			System.out.println("Identifica Cliente... clientes com estas caracteriscticas:" + "\n" + json);
+			
+			System.out.println("Identifica Cliente... cliente com estas caracteristicas:" + "\n" + json);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

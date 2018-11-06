@@ -117,8 +117,8 @@
 		<hr />
 		<div id="actions" class="row">
 			<div class="col-md-12">
-				<a href="alterar_cliente?id=${cliente.id}" class="btn btn-primary">Editar</a> 
-				<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Excluir</a> 
+			<!-- <a href="alterar_cliente?id=${cliente.id}" class="btn btn-primary">Editar</a> 
+				<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Excluir</a>  -->
 				<a href="index" class="btn btn-default">Voltar</a>
 			</div>
 		</div>
