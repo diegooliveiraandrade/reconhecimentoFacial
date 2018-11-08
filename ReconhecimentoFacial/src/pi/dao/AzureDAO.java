@@ -26,7 +26,7 @@ public class AzureDAO {
 
 	public String identifyCliente(String idPhoto) {
 
-		String personId = "NA";
+		String personId = "";
 		String endPoint = "https://brazilsouth.api.cognitive.microsoft.com/face/v1.0/identify";
 
 		HttpClient httpclient = new DefaultHttpClient();
