@@ -7,6 +7,24 @@ public class Azure {
 
 	private String personId;
 	private ArrayList<File> photos;
+	private String faceId;
+	private String[] candidates;
+
+	public String[] getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(String[] candidates) {
+		this.candidates = candidates;
+	}
+
+	public String getFaceId() {
+		return faceId;
+	}
+
+	public void setFaceId(String faceId) {
+		this.faceId = faceId;
+	}
 
 	public Azure() {
 

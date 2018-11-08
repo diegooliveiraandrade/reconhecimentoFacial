@@ -18,7 +18,9 @@ import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class AzureDAO {
+import pi.entity.Cliente;
+
+public class AzureDAO	{
 
 	// key da API
 	private static final String subscriptionKey = "ecf414eaa0434da2b46426317f6b999d";
@@ -28,6 +30,7 @@ public class AzureDAO {
 	 * IDENTIFICANDO A PESSOA ATRAVES DO ID RECEBIDO PELO IdentifyCLiente
 	 */
 	public String identifyCliente(String idPhoto) {
+		Cliente cliente = new Cliente();
 		String retorno = null;
 		String endPoint = "https://brazilsouth.api.cognitive.microsoft.com/face/v1.0/identify";
 		HttpClient httpclient = new DefaultHttpClient();
@@ -46,10 +49,14 @@ public class AzureDAO {
 					+ "    \"maxNumOfCandidatesReturned\": 1,\n" + "    \"confidenceThreshold\": 0.5\n" + "}");
 			request.setEntity(reqEntity);
 			HttpResponse response = httpclient.execute(request);
-			String json = EntityUtils.toString(response.getEntity());
-			retorno = json;
+			String jsonResult = EntityUtils.toString(response.getEntity());
+			jsonResult.replaceAll("/", "");
 			
-			System.out.println("Identifica Cliente... cliente com estas caracteristicas:" + "\n" + json);
+			
+				
+			System.out.println("Identifica Cliente... cliente com estas caracteristicas:" + "\n" + jsonResult);
+			
+			
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -60,7 +67,7 @@ public class AzureDAO {
 	}
 
 	/*
-	 * TREINANDO A API PARA MAIOR ACURACIDADE
+	 * TREINANDO A API
 	 */
 	public void training() {
 		String endPoint = "https://brazilsouth.api.cognitive.microsoft.com/face/v1.0/persongroups/grupao/train";
@@ -335,6 +342,7 @@ public class AzureDAO {
 			HttpResponse response = httpclient.execute(request);
 			HttpEntity entity = response.getEntity();
 			String json = EntityUtils.toString(response.getEntity());
+			System.out.println(json);
 
 			// response
 			if (entity != null) {
@@ -342,6 +350,8 @@ public class AzureDAO {
 				if (node.has("personId")) {
 					personId = node.get("personId").toString();
 					personId = personId.replaceAll("\"", "");
+					
+					
 				}
 			}
 

@@ -7,12 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente extends Azure{
-	
+public class Cliente extends Azure {
+
 	@Id
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +23,6 @@ public class Cliente extends Azure{
 	private String cpf;
 	private String rg;
 	private String email;
-	private String idImagem;
 	private String endereco;
 	private String cep;
 	private String tipoLogradouro;
@@ -33,14 +33,14 @@ public class Cliente extends Azure{
 	private String pais;
 	private String telefone;
 	private String personId;
+	@Transient
 	private File foto;
-	
-	// Contructor
-		public Cliente() {
-			// TODO Auto-generated constructor stub
-		}
 
-	
+	// Contructor
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public File getFoto() {
 		return foto;
 	}
@@ -87,14 +87,6 @@ public class Cliente extends Azure{
 
 	public void setemail(String email) {
 		this.email = email;
-	}
-
-	public String getIdImagem() {
-		return idImagem;
-	}
-
-	public void setIdImagem(String idImagem) {
-		this.idImagem = idImagem;
 	}
 
 	public String getEndereco() {
@@ -180,8 +172,9 @@ public class Cliente extends Azure{
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", email=" + email
-				+ ", idImagem=" + idImagem + ", endereco=" + endereco + ", cep=" + cep + ", tipoLogradouro="
-				+ tipoLogradouro + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + ", estado="
-				+ estado + ", pais=" + pais + ", telefone=" + telefone + ", personId=" + personId + "]";
+				+ ", endereco=" + endereco + ", cep=" + cep + ", tipoLogradouro=" + tipoLogradouro + ", numero="
+				+ numero + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", pais=" + pais
+				+ ", telefone=" + telefone + ", personId=" + personId + ", foto=" + foto + "]";
 	}
+
 }
