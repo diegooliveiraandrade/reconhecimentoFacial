@@ -26,31 +26,25 @@
 			enctype="multipart/form-data">
 			<!-- area de campos do form -->
 			<div class="row">
-				<div class="form-group col-md-8">
+				<div class="form-group col-md-3">
 					<label for="nome">Nome</label>
 					<form:errors path="cliente.nome" cssStyle="color:red" />
 					<input type="text" class="form-control" name="nome" id="nome"
 						maxlength="100" placeholder="nome">
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
+				<div class="form-group col-md-3">
 					<label for="cpf">CPF</label>
 					<form:errors path="cliente.cpf" cssStyle="color:red" />
 					<input type="text" class="form-control" name="cpf" id="cpf"
 						maxlength="12" placeholder="cpf">
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
+				<div class="form-group col-md-3">
 					<label for="RG">RG</label>
 					<form:errors path="cliente.rg" cssStyle="color:red" />
-					<input type="text" class="form-control" name="rg"
-						id="rg" maxlength="12" placeholder="rg">
+					<input type="text" class="form-control" name="rg" id="rg"
+						maxlength="12" placeholder="rg">
 				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
+				<div class="form-group col-md-3">
 					<label for="EMAIL">Email</label>
 					<form:errors path="pessoa.email" cssStyle="color:red" />
 					<input type="text" class="form-control" name="email" id="email"
@@ -58,95 +52,81 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="idImagem">ID Imagem</label>
-					<form:errors path="cliente.idImagem" cssStyle="color:red" />
-					<input type="text" class="form-control" name="idImagem"
-						id="idImagem" maxlength="300" placeholder="idImagem">
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="ENDERECO">Endereço</label>
-					<form:errors path="cliente.endereco" cssStyle="color:red" />
-					<input type="text" class="form-control" name="endereco" id="endereco"
-						maxlength="300" placeholder="endereco">
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="CEP">CEP</label>
-					<form:errors path="cliente.cep" cssStyle="color:red" />
-					<input type="text" class="form-control" name="cep"
-						id="cep" maxlength="10" placeholder="cep">
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="tipoLogradouro">Logradouro</label>
-					<form:errors path="cliente.tipoLogradouro" cssStyle="color:red" />
-					<input type="text" class="form-control" name="tipoLogradouro"
-						id="tipoLogradouro" maxlength="10" placeholder="tipoLogradouro">
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="numero">Numero</label>
-					<form:errors path="cliente.numero" cssStyle="color:red" />
-					<input type="text" class="form-control" name="numero"
-						id="numero" maxlength="10" placeholder="numero">
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="bairro">Bairro</label>
-					<form:errors path="cliente.bairro" cssStyle="color:red" />
-					<input type="text" class="form-control" name="bairro"
-						id="bairro" maxlength="100" placeholder="bairro">
-				</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="cidade">Cidade</label>
-					<form:errors path="cliente.cidade" cssStyle="color:red" />
-					<input type="text" class="form-control" name="cidade"
-						id="cidade" maxlength="100" placeholder="cidade">
-				</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="estado">UF</label>
-					<form:errors path="cliente.estado" cssStyle="color:red" />
-					<input type="text" class="form-control" name="estado"
-						id="estado" maxlength="2" placeholder="UF">
-				</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="pais">País</label>
-					<form:errors path="cliente.pais" cssStyle="color:red" />
-					<input type="text" class="form-control" name="pais"
-						id="pais" maxlength="100" placeholder="pais">
-				</div>
-			<div class="row">
-				<div class="form-group col-md-8">
+				<div class="form-group col-md-4">
 					<label for="telefone">Telefone</label>
 					<form:errors path="cliente.telefone" cssStyle="color:red" />
 					<input type="text" class="form-control" name="telefone"
 						id="telefone" maxlength="20" placeholder="telefone">
 				</div>
+				<div class="form-group col-md-8">
+					<label for="ENDERECO">Endereço</label>
+					<form:errors path="cliente.endereco" cssStyle="color:red" />
+					<input type="text" class="form-control" name="endereco"
+						id="endereco" maxlength="300" placeholder="endereco">
+				</div>
 			</div>
+			<div class="row">
+				<div class="form-group col-md-5">
+					<label for="CEP">CEP</label>
+					<form:errors path="cliente.cep" cssStyle="color:red" />
+					<input type="text" class="form-control" name="cep" id="cep"
+						maxlength="10" placeholder="cep">
+				</div>
+				<div class="form-group col-md-5">
+					<label for="tipoLogradouro">Logradouro</label>
+					<form:errors path="cliente.tipoLogradouro" cssStyle="color:red" />
+					<input type="text" class="form-control" name="tipoLogradouro"
+						id="tipoLogradouro" maxlength="10" placeholder="tipoLogradouro">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="numero">Numero</label>
+					<form:errors path="cliente.numero" cssStyle="color:red" />
+					<input type="text" class="form-control" name="numero" id="numero"
+						maxlength="10" placeholder="numero">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-3">
+					<label for="bairro">Bairro</label>
+					<form:errors path="cliente.bairro" cssStyle="color:red" />
+					<input type="text" class="form-control" name="bairro" id="bairro"
+						maxlength="100" placeholder="bairro">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="cidade">Cidade</label>
+					<form:errors path="cliente.cidade" cssStyle="color:red" />
+					<input type="text" class="form-control" name="cidade" id="cidade"
+						maxlength="100" placeholder="cidade">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="estado">UF</label>
+					<form:errors path="cliente.estado" cssStyle="color:red" />
+					<input type="text" class="form-control" name="estado" id="estado"
+						maxlength="2" placeholder="UF">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="pais">País</label>
+					<form:errors path="cliente.pais" cssStyle="color:red" />
+					<input type="text" class="form-control" name="pais" id="pais"
+						maxlength="100" placeholder="pais">
+				</div>
+			</div>
+
+			<div class="row">
 				<div hidden="form-group col-md-4">
 					<label for="personId">PersonId</label> <input type="text"
 						class="form-control" name="cliente.personId" id="personId"
 						placeholder="personId">
 				</div>
 			</div>
+
 			<!-- inclusao da foto -->
 			<div class="row">
-				<div>
+				<div class="form-group col-md-3">
 					<video id="video" width="300" height="300" autoplay></video>
-					<input type="button" id="snap" title="Capturar Foto" value="Salvar Foto"> 
+					<input type="button" id="snap" title="Capturar Foto"
+						value="Salvar Foto">
 					<canvas id="canvas" width="640" height="480"></canvas>
 					<script type="text/javascript">
 						// Grab elements, create settings, etc.
