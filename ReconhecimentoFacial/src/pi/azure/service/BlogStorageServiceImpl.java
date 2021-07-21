@@ -36,7 +36,7 @@ public class BlogStorageServiceImpl implements BlobStorageService {
     public static final String storageConnectionString =
     		"DefaultEndpointsProtocol=https;"
     	    		+ "AccountName=grupopi2018;"
-    	    		+ "AccountKey=F40G06CcqLk+t7khYjocgF7rP3f/Zjqw2PKNvthrsY3jScpXICilua3BaYgFdf14DHXdVl81KuXOJMmaO94W3A==;"
+    	    		+ "AccountKey="
     		+ "EndpointSuffix=core.windows.net";
     
     private static final String blobImageContainer = "fotos";
